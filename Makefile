@@ -1,15 +1,3 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: reldahli <reldahli@student.42berlin.d      +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/04/16 13:09:33 by reldahli          #+#    #+#              #
-#    Updated: 2024/04/16 13:09:39 by reldahli         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
 # Standard
 NAME				= push_swap
 
@@ -47,7 +35,7 @@ SRCS 				= $(COMMANDS_DIR) $(PUSH_SWAP_DIR)
 OBJ 				= $(patsubst $(SRC_DIR)%.c,$(OBJ_DIR)%.o,$(SRCS))
 
 # Build rules
-start:				
+start:
 					@make all
 
 $(LIBFT):
@@ -59,7 +47,7 @@ $(NAME): 			$(OBJ) $(LIBFT)
 					@$(CC) $(CFLAGS) $(INC) $(OBJ) $(LIBFT) -o $(NAME)
 
 # Compile object files from source files
-$(OBJ_DIR)%.o:		$(SRC_DIR)%.c 
+$(OBJ_DIR)%.o:		$(SRC_DIR)%.c
 					@mkdir -p $(@D)
 					@$(CC) $(CFLAGS) $(INC) -c $< -o $@
 

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../../inc/libft.h"
 
 static int	to_trim(const char *set, char c);
 static char	*new_str(const char *s1, size_t start, size_t end);

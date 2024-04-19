@@ -27,7 +27,7 @@
 /* further examination.                                                    */
 /* ----------------------------------------------------------------------- */
 
-#include "get_next_line.h"
+#include "../../inc/get_next_line.h"
 
 char	*append_buffer(char *basin_buffer, char *read_buffer)
 {

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../../inc/libft.h"
 
 static int	word_count(const char *str, char c);
 static char	*fill_word(const char *str, int start, int end);
