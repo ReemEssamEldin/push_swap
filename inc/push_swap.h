@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: reldahli <reldahli@student.42berlin.d      +#+  +:+       +#+        */
+/*   By: reldahli <reldahli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 12:57:08 by reldahli          #+#    #+#             */
-/*   Updated: 2024/04/16 12:57:12 by reldahli         ###   ########.fr       */
+/*   Updated: 2024/04/19 14:35:23 by reldahli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,5 +65,7 @@ void			pb(t_stack_node **b, t_stack_node **a, bool print);
 
 void			sort_three(t_stack_node **a);
 void			sort_stacks(t_stack_node **a, t_stack_node **b);
-
+void			rotate_both(t_stack_node **a,
+					t_stack_node **b,
+					t_stack_node *cheapest_node);
 #endif
