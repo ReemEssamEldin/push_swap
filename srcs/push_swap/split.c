@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   split.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: reldahli <reldahli@student.42berlin.d      +#+  +:+       +#+        */
+/*   By: reldahli <reldahli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 13:04:28 by reldahli          #+#    #+#             */
-/*   Updated: 2024/04/16 13:04:29 by reldahli         ###   ########.fr       */
+/*   Updated: 2024/04/23 12:21:08 by reldahli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,14 @@ char	**split(char *s, char c)
 			result_array[i++][0] = '\0';
 			continue ;
 		}
-		result_array[i++] = get_next_word(s, c);
+		result_array[i] = get_next_word(s, c);
+		if (!result_array[i])
+		{
+			while (i-- >= 0)
+				free(result_array);
+			free(result_array);
+		}
+		i++;
 	}
 	result_array[i] = NULL;
 	return (result_array);

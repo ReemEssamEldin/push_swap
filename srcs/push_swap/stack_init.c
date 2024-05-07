@@ -3,14 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   stack_init.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: reldahli <reldahli@student.42berlin.d      +#+  +:+       +#+        */
+/*   By: reldahli <reldahli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 13:04:40 by reldahli          #+#    #+#             */
-/*   Updated: 2024/04/16 13:04:41 by reldahli         ###   ########.fr       */
+/*   Updated: 2024/04/23 13:47:53 by reldahli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/push_swap.h"
+
+void	free_array(char **av)
+{
+	int	i;
+
+	i = -1;
+	while (av[i])
+	{
+		free(av[i]);
+		av[i] = NULL;
+		i++;
+	}
+	free(av -1);
+}
 
 static long	ft_atol(const char *s)
 {
@@ -58,7 +72,7 @@ static void	append_node(t_stack_node **stack, int n)
 	}
 }
 
-void	init_stack_a(t_stack_node **a, char **argv)
+void	init_stack_a(t_stack_node **a, char **argv, int argc)
 {
 	long	n;
 	int		i;
@@ -67,14 +81,18 @@ void	init_stack_a(t_stack_node **a, char **argv)
 	while (argv[i])
 	{
 		if (error_syntax(argv[i]))
-			free_errors(a);
+			free_errors(a, argv, argc);
 		n = ft_atol(argv[i]);
 		if (n > INT_MAX || n < INT_MIN)
-			free_errors(a);
+			free_errors(a, argv, argc);
 		if (error_duplicate(*a, (int)n))
-			free_errors(a); 
+			free_errors(a, argv, argc); 
 		append_node(a, (int)n);
 		i++;
+	}
+	if (argc == 2)
+	{
+		free_array(argv);
 	}
 }
 

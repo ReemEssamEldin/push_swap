@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_errors.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: reldahli <reldahli@student.42berlin.d      +#+  +:+       +#+        */
+/*   By: reldahli <reldahli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 13:03:44 by reldahli          #+#    #+#             */
-/*   Updated: 2024/04/16 13:03:45 by reldahli         ###   ########.fr       */
+/*   Updated: 2024/05/07 12:22:26 by reldahli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,9 +61,13 @@ void	free_stack(t_stack_node **stack)
 	*stack = NULL;
 }
 
-void	free_errors(t_stack_node **a)
+void	free_errors(t_stack_node **a, char **argv, int argc)
 {
 	free_stack(a);
+	if (argc == 2)
+	{
+		free_array(argv);
+	}
 	ft_printf("Error\n");
 	exit(1);
 }

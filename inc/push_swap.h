@@ -6,7 +6,7 @@
 /*   By: reldahli <reldahli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 12:57:08 by reldahli          #+#    #+#             */
-/*   Updated: 2024/04/19 14:35:23 by reldahli         ###   ########.fr       */
+/*   Updated: 2024/04/23 12:18:30 by reldahli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,11 @@ typedef struct s_stack_node
 int				error_syntax(char *str_n); 
 int				error_duplicate(t_stack_node *a, int n);
 void			free_stack(t_stack_node **stack);
-void			free_errors(t_stack_node **a);
+void			free_errors(t_stack_node **a, char **argv, int argc);
+void			free_array(char **av);
 
-void			init_stack_a(t_stack_node **a, char **argv);
+void			init_stack_a(t_stack_node **a, char **argv, int argc);
+
 char			**split(char *s, char c);
 
 void			init_nodes_a(t_stack_node *a, t_stack_node *b);
@@ -65,6 +67,7 @@ void			pb(t_stack_node **b, t_stack_node **a, bool print);
 
 void			sort_three(t_stack_node **a);
 void			sort_stacks(t_stack_node **a, t_stack_node **b);
+
 void			rotate_both(t_stack_node **a,
 					t_stack_node **b,
 					t_stack_node *cheapest_node);
