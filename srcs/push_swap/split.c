@@ -6,7 +6,7 @@
 /*   By: reldahli <reldahli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 13:04:28 by reldahli          #+#    #+#             */
-/*   Updated: 2024/04/23 12:21:08 by reldahli         ###   ########.fr       */
+/*   Updated: 2024/05/07 15:01:26 by reldahli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ static int	count_words(char *s, char c)
 			++s;
 		}
 	}
+	if (!count)
+		exit(1);
 	return (count);
 }
 
@@ -58,6 +60,16 @@ static char	*get_next_word(char *s, char c)
 	return (next_word);
 }
 
+void	clear_memory(char **result_array, int i)
+{
+	if (!result_array[i])
+	{
+		while (i-- >= 0)
+			free(result_array);
+		free(result_array);
+	}
+}
+
 char	**split(char *s, char c)
 {
 	int		words_count;
@@ -66,8 +78,6 @@ char	**split(char *s, char c)
 
 	i = 0;
 	words_count = count_words(s, c);
-	if (!words_count)
-		exit(1);
 	result_array = malloc(sizeof(char *) * (size_t)(words_count + 2));
 	if (!result_array)
 		return (NULL);
@@ -82,12 +92,6 @@ char	**split(char *s, char c)
 			continue ;
 		}
 		result_array[i] = get_next_word(s, c);
-		if (!result_array[i])
-		{
-			while (i-- >= 0)
-				free(result_array);
-			free(result_array);
-		}
 		i++;
 	}
 	result_array[i] = NULL;

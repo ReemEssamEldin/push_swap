@@ -6,7 +6,7 @@
 /*   By: reldahli <reldahli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 12:57:08 by reldahli          #+#    #+#             */
-/*   Updated: 2024/04/23 12:18:30 by reldahli         ###   ########.fr       */
+/*   Updated: 2024/05/07 15:09:59 by reldahli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,4 +71,6 @@ void			sort_stacks(t_stack_node **a, t_stack_node **b);
 void			rotate_both(t_stack_node **a,
 					t_stack_node **b,
 					t_stack_node *cheapest_node);
+
+long			ft_atol(const char *s);
 #endif
