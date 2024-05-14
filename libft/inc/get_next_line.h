@@ -1,28 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: reldahli <reldahli@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/19 10:38:33 by reldahli          #+#    #+#             */
-/*   Updated: 2024/02/19 10:38:35 by reldahli         ###   ########.fr       */
+/*   Created: 2024/01/30 13:05:59 by reldahli          #+#    #+#             */
+/*   Updated: 2024/01/30 13:06:02 by reldahli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-# include <stdlib.h>
-# include <stdarg.h>
 # include <stdio.h>
+# include <stdlib.h>
 # include <unistd.h>
 
-int	ft_printf(const char *format, ...);
-int	ft_putchar(char c);
-int	ft_putstr(char *str);
-int	ft_putnbr(int n);
-int	ft_putunbr(unsigned int n);
-int	ft_puthex(long unsigned int n, int upper);
-int	ft_putptr(long long unsigned int n);
+void	*ft_calloc(size_t count, size_t size);
+void	*ft_memset(void *s, int c, size_t n);
+char	*ft_strchr(const char *s, int c);
+char	*ft_strjoin(char const *s1, char const *s2);
+size_t	ft_strlen(const char *str);
+char	*append_buffer(char *basin_buffer, char *read_buffer);
+char	*extract_line(char *basin_buffer);
+char	*obtain_remaining(char *basin_buffer);
+char	*read_from_file(char *basin_buffer, int fd);
+char	*get_next_line(int fd);
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 3
+# endif
+
 #endif
