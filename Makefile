@@ -36,6 +36,7 @@ SRCS 				= $(COMMANDS_DIR) $(PUSH_SWAP_DIR)
 
 # Apply the pattern substitution to each source file in SRC and produce a corresponding list of object files in the OBJ_DIR
 OBJ 				= $(patsubst $(SRC_DIR)%.c,$(OBJ_DIR)%.o,$(SRCS))
+# 						patsubst pattern , replcament, text
 
 # Build rules
 start:
