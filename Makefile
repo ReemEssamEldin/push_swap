@@ -17,7 +17,7 @@ COMMANDS_DIR		=	$(SRC_DIR)commands/push.c \
 						$(SRC_DIR)commands/rev_rotate.c \
 						$(SRC_DIR)commands/rotate.c \
 						$(SRC_DIR)commands/sort_stacks.c \
-						$(SRC_DIR)commands/sort_stacks_utils.c \
+						$(SRC_DIR)commands/sort_stack_utils.c \
 						$(SRC_DIR)commands/sort_three.c \
 						$(SRC_DIR)commands/swap.c
 
